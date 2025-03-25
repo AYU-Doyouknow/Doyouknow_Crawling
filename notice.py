@@ -16,7 +16,6 @@ notice_list = []
 
 for i in range(0,len(html_notice)):
     notice = html.select(f"#cms-content > div > div > div.bn-list-common01.type01.bn-common-cate > table > tbody > tr:nth-child({i})")
-    notice_list = []
     if notice:
         notice = notice[0]
         
