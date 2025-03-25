@@ -10,11 +10,11 @@ html_text = requests.get(url)
 
 # Parse the content with BeautifulSoup
 html = BeautifulSoup(html_text.text, "html.parser")
-html_notice = trs = html.select("#cms-content > div > div > div.bn-list-common01.type01.bn-common-cate > table > tbody > tr")
+html_notice = html.select("#cms-content > div > div > div.bn-list-common01.type01.bn-common-cate > table > tbody > tr")
 
 notice_list = []
 
-for i in range(0,len(trs)):
+for i in range(0,len(html_notice)):
     notice = html.select(f"#cms-content > div > div > div.bn-list-common01.type01.bn-common-cate > table > tbody > tr:nth-child({i})")
     notice_list = []
     if notice:
