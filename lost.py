@@ -31,7 +31,7 @@ for i in range(len(html_lost) - 1, 0, -1):
         try:
             html_text_2 = requests.get(link)
             html_2 = BeautifulSoup(html_text_2.text, "html.parser")
-            body_html = html_2.select_one(".b-content-box > .fr-view")
+            body_html = html_2.select_one(".b-content-box")
             if body_html:
                 body = str(body_html)
 
