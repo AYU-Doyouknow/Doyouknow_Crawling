@@ -11,7 +11,7 @@ html_lost = html.select('#cms-content > div > div > div.bn-list-common01.type01.
 
 lost_list = []
 
-for i in range(1, len(html_lost)):
+for i in range(len(html_lost) - 1, 0, -1):
     lost = html.select(f'#cms-content > div > div > div.bn-list-common01.type01.bn-common > table > tbody > tr:nth-child({i})')
 
     if lost:
