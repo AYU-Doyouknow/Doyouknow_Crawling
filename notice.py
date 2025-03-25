@@ -61,9 +61,7 @@ for i in range(len(html_notice) - 1, 0, -1):
                 download_link = ''
                 download_title = ''
 
-            body_html = html_2.select_one(".b-content-box > .fr-view")
-            if body_html:
-                body = str(body_html)
+            body = html_2.select_one(".b-content-box")
 
         except requests.RequestException as e:
             print(f"Error fetching {link}: {e}")
