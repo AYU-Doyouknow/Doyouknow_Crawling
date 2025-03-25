@@ -14,7 +14,7 @@ html_notice = html.select("#cms-content > div > div > div.bn-list-common01.type0
 
 notice_list = []
 
-for i in range(0,2):
+for i in range(len(html_notice) - 1, 0, -1):
     notice = html.select(f"#cms-content > div > div > div.bn-list-common01.type01.bn-common-cate > table > tbody > tr:nth-child({i})")
     if notice:
         notice = notice[0]
@@ -24,6 +24,7 @@ for i in range(0,2):
             noticeCheck = True
         else:
             noticeCheck = False
+        print(noticeCheck)
 
         title_element = notice.select_one("td.b-td-left.b-td-title > div > a")
         title = title_element.get("title") if title_element else "No title"
@@ -80,6 +81,8 @@ for i in range(0,2):
             "noticeDownloadLink" : str(download_link),
             "noticeDownloadTitle" : str(download_title)
         })
+
+print(notice_list)
 
 # api_url = "http://localhost:8080/notices/add"
 # response = requests.post(api_url, json=notice_list)
