@@ -82,10 +82,10 @@ for i in range(len(html_notice) - 1, 0, -1):
 
 print(notice_list)
 
-# api_url = "http://localhost:8080/notices/add"
-# response = requests.post(api_url, json=notice_list)
+api_url = "http://localhost:8080/notice/addNotice"
+response = requests.post(api_url, json=notice_list)
 
-# if response.status_code == 200:
-#     print("Notices successfully added.")
-# else:
-#     print("Failed to add notices.")
+if response.status_code == 201:
+    print("Notices successfully added.")
+else:
+    print("Failed to add notices.")
