@@ -62,3 +62,11 @@ for i in range(len(html_news) - 1, 0, -1):
             "newsDownloadLink": str(download_link),
             "newsDownloadTitle" : str(download_title)
         })
+
+api_url = "http://localhost:8080/news/addNews"
+response = requests.post(api_url, json=news_list)
+
+if response.status_code == 201:
+    print("Notices successfully added.")
+else:
+    print("Failed to add notices.")
