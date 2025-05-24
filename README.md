@@ -1,3 +1,5 @@
 # 설치 라이브러리
 
-- 준웅씨 작성해주세요
+-   pip install requests
+-   pip install beautifulsoup4
+-   pip install mysql-connector-python
