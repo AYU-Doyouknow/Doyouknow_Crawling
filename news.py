@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.anyang.ac.kr/main/communication/school-news.do?mode=list&&articleLimit=700"
+url = "https://www.anyang.ac.kr/main/communication/school-news.do?mode=list&&articleLimit=6"
 url_main = "https://www.anyang.ac.kr/main/communication/school-news.do"
 
 html_text = requests.get(url)
@@ -26,7 +26,6 @@ for i in range(len(html_news) - 1, 0, -1):
 
         writer = news.select_one('td:nth-child(3)').text.strip() if news.select_one('td:nth-child(3)') else "No writer"
         date = news.select_one('td:nth-child(4)').text.strip() if news.select_one('td:nth-child(4)') else "No date"
-        views = news.select_one('td:nth-child(5)').text.strip() if news.select_one('td:nth-child(5)') else "No views"
 
         try:
             html_text_2 = requests.get(link)
@@ -52,12 +51,11 @@ for i in range(len(html_news) - 1, 0, -1):
             print(f"Error fetching {link}: {e}")
 
         news_list.append({
-            "Id" : news_ID,
+            "id" : news_ID,
             "newsTitle": str(title),
             "newsWriter": str(writer),
             "newsLink": str(link),
             "newsDate": str(date),
-            "newsViews": str(views),
             "newsBody" : str(body),
             "newsDownloadLink": str(download_link),
             "newsDownloadTitle" : str(download_title)

@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.anyang.ac.kr/main/communication/lost-found.do?mode=list&&articleLimit=200"
+url = "https://www.anyang.ac.kr/main/communication/lost-found.do?mode=list&&articleLimit=6"
 url_main = "https://www.anyang.ac.kr/main/communication/lost-found.do"
 
 html_text = requests.get(url)
@@ -26,7 +26,6 @@ for i in range(len(html_lost) - 1, 0, -1):
 
         writer = lost.select_one('td:nth-child(3)').text.strip() if lost.select_one('td:nth-child(3)') else "No writer"
         date = lost.select_one('td:nth-child(4)').text.strip() if lost.select_one('td:nth-child(4)') else "No date"
-        views = lost.select_one('td:nth-child(5)').text.strip() if lost.select_one('td:nth-child(5)') else "No views"
 
         try:
             html_text_2 = requests.get(link)
@@ -37,12 +36,11 @@ for i in range(len(html_lost) - 1, 0, -1):
             print(f"Error fetching {link}: {e}")
 
         lost_list.append({
-            "Id" : lost_ID,
+            "id" : lost_ID,
             "lostTitle": str(title),
             "lostWriter": str(writer),
             "lostLink": str(link),
             "lostDate": str(date),
-            "lostViews": str(views),
             "lostBody" : str(body),
         })
 
