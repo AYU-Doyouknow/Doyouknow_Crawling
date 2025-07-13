@@ -68,7 +68,7 @@ for i in range(len(html_notice) - 1, 0, -1):
             "noticeDownloadTitle" : str(download_title)
         })
 
-api_url = "http://localhost:8080/notice/addNotice"
+api_url = "https://doyouknow.shop/notice/addNotice"
 response = requests.post(api_url, json=notice_list)
 
 if response.status_code == 201:
