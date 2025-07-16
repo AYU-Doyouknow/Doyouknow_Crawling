@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-url = "https://www.anyang.ac.kr/main/communication/notice.do?mode=list&&articleLimit=6&article.offset=1"
+url = "https://www.anyang.ac.kr/main/communication/notice.do?mode=list&&articleLimit=5&article.offset=0"
 url_main = "https://www.anyang.ac.kr/main/communication/notice.do"
 
 html_text = requests.get(url)
