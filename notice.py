@@ -67,6 +67,10 @@ for i in range(len(html_notice) - 1, 0, -1):
             "noticeDownloadLink" : str(download_link),
             "noticeDownloadTitle" : str(download_title)
         })
+        
+# 내림차순 정렬 (id 기준)
+notice_list.sort(key=lambda x: int(x['id']), reverse=True)
+notice_list = notice_list[:5]
 
 api_url = "https://doyouknow.shop/notice/addNotice"
 response = requests.post(api_url, json=notice_list)
